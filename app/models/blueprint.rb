@@ -1,2 +1,0 @@
-class Blueprint < ApplicationRecord
-end

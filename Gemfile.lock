@@ -310,7 +310,7 @@ DEPENDENCIES
   capybara
   chronic_duration (~> 0.10.6)
   debug
-  dockerfile-rails (~> 1.6)
+  dockerfile-rails (>= 1.6)
   ice_cube (~> 0.16.4)
   importmap-rails
   jbuilder
