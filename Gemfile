@@ -74,3 +74,15 @@ end
 gem "roo", "~> 2.10"
 
 gem "roo-google", "~> 1.0"
+
+gem "rails-i18n", "~> 7.0"
+
+gem "simple_calendar", "~> 3.0"
+
+gem "ice_cube", "~> 0.16.4"
+
+gem "chronic_duration", "~> 0.10.6"
+
+gem "jquery-rails", "~> 4.6"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
