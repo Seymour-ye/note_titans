@@ -1,33 +1,147 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  top_quality: "Top Quality"
+
+  lost_city_of_gold: "Lost City of Gold"
+  dragon_invasion: "Dragon Invasion"
+  kings_caprice: "King's Caprice"
+  tower_of_titans: "Tower of Titans"
+
+  flash_quest: "Flash Quest"
+
+  content_pass: "Content Pass"
+  full_bloom_pass: "Full Bloom"  
+  year_of_dragon_pass: "Year of the Dragon"  
+  christmas_pass: "Christmas"  
+  vampire_masquerade_pass: "Vampire Masquerade"  
+  bjorn_pass: "Bjron"  
+  spacefarer_pass: "Spacefarer"  
+  year_of_the_rabbit_pass: "Year of the Rabbit"  
+  halloween2022_pass: "Halloween"  
+  year_of_the_tiger_pass: "Year of the Tiger"  
+  avatar_pass: "Avatar"  
+  cinco_de_mayo_pass: "Cinco de Mayo"
+
+  tier: "Tier"
+  category: "Category"
+  resource: "Resource"
+  components: "Components"
+  inclusion: "Inclusion"
+  exclusion: "Exclusion"
+  weapon: "Weapon"
+  armor: "Armor"
+  accessory: "Accessory"
+  other: "Other"
+  sort_by: "Sort By"
+
+  categories:
+    sword: "Sword"
+    axe: "Axe"
+    dagger: "Dagger"
+    mace: "Mace"
+    spear: "Spear"
+    bow: "Bow"
+    wand: "Wand"
+    staff: "Staff"
+    gun: "Gun"
+    crossbow: "Crossbow"
+    instrument: "Instrument"
+    heavy_armor: "Heavy Armor"
+    light_armor: "Light Armor"
+    clothes: "Clothes"
+    helmet: "Helmet"
+    rogue_hat: "Rogue Hat"
+    magician_hat: "Magician Hat"
+    gauntlets: "Gauntlets"
+    gloves: "Gloves"
+    heavy_footwear: "Heavy Footwear"
+    light_footwear: "Light Footwear"
+    herbal_medicine: "Herbal Medicine"
+    potion: "Potion"
+    spell: "Spell"
+    shield: "Shield"
+    ring: "Ring"
+    amulet: "Amulet"
+    cloak: "Cloak"
+    familiar: "Familiar"
+    aurasong: "Aurasong"
+    meal: "Meal"
+    dessert: "Dessert"
+    runestone: "Runestone"
+    moonstone: "Moonstone"
+    element: "Element"
+    spirit: "Spirit"
+
+  component:
+    all_seeing_eye: "All-Seeing Eye"
+    ancient_marble: "Ancient Marble"
+    astral_fabric: "Astral Fabric"
+    boreal_gale: "Boreal Gale"
+    bronze_fang: "Bronze Fang"
+    chronos_crystal: "Chronos Crystal"
+    crush_claw: "Crush Claw"
+    crystal_lullaby: "Crystal Lullaby"
+    deep_coral: "Deep Coral"
+    deep_pearl: "Deep Pearl"
+    elven_wood: "Elven Wood"
+    evil_eye: "Evil Eye"
+    ghastly_pennant: "Ghastly Pennant"
+    glow_shroom: "Glow Shroom"
+    golden_artifact: "Golden Artifact"
+    grim_talon: "Grim talon"
+    iron_pine_cone: "Iron Pine Cone"
+    living_root: "Living Root"
+    magma_core: "Magma Core"
+    moon_crystal: "Moon Crystal"
+    opulent_jewel: "Opulent Jewel"
+    outsiders_claw: "Outsiders Claw"
+    overgrown_vine: "Overgrown Vine"
+    precious_gem: "Precious Gem"
+    precious_shell: "Precious Shell"
+    raw_obsidian: "Raw Obsidian"
+    rustwyrm_scale: "Rustwyrm Scale"
+    silk_scarab: "Silk Scarab"
+    silver_dust: "Silver Dust"
+    spooky_ectoplasm: "Spooky Ectoplasm"
+    star_metal: "Star Metal"
+    thread_of_fate: "Thread of Fate"
+    webbed_wing: "Webbed Wing"
+    white_sand: "White Sand"
+    zirconia_eggshell: "Zirconia Eggshell"
+    
+  _navigation:
+    home: "Home"
+    blueprints: "Blueprints"
+    heroes: "Heroes"
+    events: "Events"
+    calendar: "Calendar"
+    select_language: "Select Language"
+    
+  simple_calendar:
+    previous: "<<Previous"
+    next: "Next>>"
+    today: "Today"
+    
+  date:
+    abbr_day_names:
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    month_names:
+      - 
+      - January
+      - Feburary
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+
