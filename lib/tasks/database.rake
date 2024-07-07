@@ -6,6 +6,7 @@ namespace :database do
 
     Rake::Task["components:import"].invoke
     Rake::Task["components:zh_update"].invoke
+    Rake::Task["resources:import"].invoke 
 
   end
 
@@ -13,6 +14,7 @@ namespace :database do
   task update: :environment do
     Rake::Task["components:import"].invoke
     Rake::Task["components:zh_update"].invoke
+    Rake::Task["resources:import"].invoke
 
   end
 

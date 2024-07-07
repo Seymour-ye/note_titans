@@ -1,5 +1,5 @@
 namespace :components do
-  desc "import the components from google spreadsheet and insert them to blueprints table"
+  desc "import the components from google spreadsheet and insert them to Component table"
   task import: :environment do
     url = "https://docs.google.com/spreadsheets/d/1WLa7X8h3O0-aGKxeAlCL7bnN8-FhGd3t7pz2RCzSg8c/export?format=xlsx"
     xls = Roo::Spreadsheet.open(url, extension: :xlsx)
