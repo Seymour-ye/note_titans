@@ -6,22 +6,17 @@ namespace :components do
     @sheet = xls.sheet('Quest Components')
     (2..@sheet.last_row).each do |row|
       @row = row 
+
       name_en = cell_val('a')
-      tier = cell_val('b')
-      value = cell_val('c')
-      get_from = cell_val('d')
-      instance = Component.find_by(name_en: name_en)
-      if instance 
-        instance.update( name_en: name_en,
-                          tier: tier,
-                          value: value,
-                          get_from: get_from)
-      else 
-        Component.create( name_en: name_en,
-                          tier: tier,
-                          value: value,
-                          get_from: get_from)
-      end 
+      component = Component.find_or_create_by(name_en: name_en)
+
+      component.tier = cell_val('b')
+      component.value = cell_val('c')
+      component.get_from = cell_val('d')
+
+      component.save!
+
+      puts "Component imported successfully: #{name_en}."
     end
   end
 
@@ -32,31 +27,18 @@ namespace :components do
     @sheet = xlsx.sheet("Components")
     (2..@sheet.last_row).each do |row|
       @row = row 
+
       name_en = cell_val('a')
-      name_zh = cell_val('b')
-      component_id = cell_val('c')
-      value = cell_val('d')
-      tier = cell_val('e')
-      instance = Component.find_by(name_en: name_en)
-      if instance 
-        if value == nil
-          instance.update( name_en: name_en,
-                            name_zh: name_zh,
-                            component_id: component_id)
-        else
-          instance.update( name_en: name_en,
-                            name_zh: name_zh,
-                            component_id: component_id,
-                            tier: tier,
-                            value: value)
-        end
-      else 
-        Component.create( name_en: name_en,
-                          name_zh: name_zh,
-                          component_id: component_id,
-                          tier: tier,
-                          value: value)
-      end 
+      component = Component.find_or_create_by(name_en: name_en)
+
+      component.name_zh = cell_val('b')
+      component.component_id = cell_val('c')
+      component.value = cell_val('d') if cell_val('d') != nil 
+      component.tier = cell_val('e') if cell_val('e') != nil
+
+      component.save!
+
+      puts "Component updated successfully: #{name_en}."
     end
   end
 
