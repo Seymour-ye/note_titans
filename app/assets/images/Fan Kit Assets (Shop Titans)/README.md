@@ -4,6 +4,11 @@ You may not redistribute any of these assets or monetize any project using these
 
 # Changelog
 
+# July 2nd, 2024
+  * Added asset for Platinum Greatsword.
+  * Added assets for Goose Spirit.
+  * Added assets for Summer Vibes Mega and Superior Packs.
+
 # June 16th, 2024
   * Added asset for Platinum Strudel.
   * Added asset for Ironclad Grapple.
@@ -20,14 +25,3 @@ You may not redistribute any of these assets or monetize any project using these
   * Added asset for Seed of Merit.
   * Added assets for Supreme Moonstones and Runestone.
   * Added assets for Tier 14 elements and spirits.
-
-# May 28th, 2024
-  * Added assets for Buggy Beetle Mega and Superior Packs.
-
-# May 14th, 2024
-  * Added assets for Cursed King Mega and Superior Packs.
-  * Added assets for Ironclad Content Pass.
-  * Added asset for Platinum Winter Hat.
-
-# May 6th, 2024
-  * Added assets for Chronomancer Mega and Superior Packs.
