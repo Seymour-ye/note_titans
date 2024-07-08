@@ -8,6 +8,7 @@ namespace :database do
     Rake::Task["components:zh_update"].invoke
     Rake::Task["resources:import"].invoke 
     Rake::Task["categories:import"].invoke
+    Rake::Task["categories:type_import"].invoke 
 
   end
 
@@ -17,7 +18,7 @@ namespace :database do
     Rake::Task["components:zh_update"].invoke
     Rake::Task["resources:import"].invoke
     Rake::Task["categories:import"].invoke
-
+    Rake::Task["categories:type_import"].invoke
 
   end
 

@@ -1,4 +1,6 @@
 class Category < ApplicationRecord
+    has_many :types, dependent: :destroy
+
     def name
         if I18n.locale == :zh && self.name_zh != nil
             self.name_zh
