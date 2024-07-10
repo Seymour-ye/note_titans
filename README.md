@@ -1,3 +1,11 @@
+# DB Updates
+1. google spreadsheet
+```
+$ rails database:update
+```
+2. Image update 
+3. Chinese Translation update
+
 # Set Up
 1. Rails projects use `sqlite` by default, change it to `postgres` by setting:
 ``` 

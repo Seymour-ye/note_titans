@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_en: MyString
+  name_zh: MyString
+  type: one
+  blueprint_id: MyString
+  tier: 1
+  value: 1
+  craft_time: 1
+  merchant_xp: 1
+
+two:
+  name_en: MyString
+  name_zh: MyString
+  type: two
+  blueprint_id: MyString
+  tier: 1
+  value: 1
+  craft_time: 1
+  merchant_xp: 1

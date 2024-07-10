@@ -17,7 +17,10 @@ namespace :resources do
 
       puts "Resource imported successfully: #{name_en}."
     end
+  end
 
+  def cell_val(col)
+    @sheet.cell(@row,col) unless @sheet.cell(@row,col) == '---'
   end
 
 end
