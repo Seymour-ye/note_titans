@@ -15,8 +15,9 @@ namespace :resources do
 
       resource.save!
 
-      puts "Resource imported successfully: #{name_en}."
+      # puts "Resource imported successfully: #{name_en}."
     end
+    puts "Resource imported successfully."
   end
 
   def cell_val(col)

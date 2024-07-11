@@ -16,8 +16,9 @@ namespace :components do
 
       component.save!
 
-      puts "Component imported successfully: #{name_en}."
+      # puts "Component imported successfully: #{name_en}."
     end
+    puts "Component imported successfully."
   end
 
   desc "import the chinese translation and image url from xlsx"
@@ -38,8 +39,9 @@ namespace :components do
 
       component.save!
 
-      puts "Component updated successfully: #{name_en}."
+      # puts "Component updated successfully: #{name_en}."
     end
+    puts "Component updated successfully."
   end
 
   def cell_val(col)

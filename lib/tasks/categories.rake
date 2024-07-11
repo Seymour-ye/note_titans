@@ -37,8 +37,9 @@ namespace :categories do
 
       type.save!
 
-      puts "Item Type imported successfully: #{type.name_zh} (#{type.category.name_zh})"
+      # puts "Item Type imported successfully: #{type.name_zh} (#{type.category.name_zh})"
     end
+    puts "Categories imported successfully"
   end
 
   def cell_val(col)

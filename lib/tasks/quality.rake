@@ -15,8 +15,13 @@ namespace :quality do
 
       quality.save!
 
-      puts "Quality updated successfully:"
+      # puts "Quality updated successfully: #{quality.name_zh}"
     end
+    puts "Quality imported successfully."
+  end
+
+  def cell_val(col)
+    @sheet.cell(@row,col) unless @sheet.cell(@row,col) == '---'
   end
 
 end
