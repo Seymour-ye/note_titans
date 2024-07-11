@@ -9,6 +9,7 @@ namespace :database do
     Rake::Task["resources:import"].invoke 
     Rake::Task["categories:import"].invoke
     Rake::Task["categories:type_import"].invoke 
+    Rake::Task["quality:import"].invoke
 
   end
 
@@ -19,7 +20,7 @@ namespace :database do
     Rake::Task["resources:import"].invoke
     Rake::Task["categories:import"].invoke
     Rake::Task["categories:type_import"].invoke
-
+    Rake::Task["quality:import"].invoke
   end
 
 end
