@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blueprint: one
+  material: one
+  amount: 1
+  quality: one
+
+two:
+  blueprint: two
+  material: two
+  amount: 1
+  quality: two

@@ -1,4 +1,6 @@
 class Resource < ApplicationRecord
+    has_many :materials 
+    
     def name
         if I18n.locale == :zh && self.name_zh != nil
             self.name_zh

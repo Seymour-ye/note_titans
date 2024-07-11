@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_10_212335) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_11_002939) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,19 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_10_212335) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "materials", force: :cascade do |t|
+    t.bigint "blueprint_id", null: false
+    t.string "material_type", null: false
+    t.bigint "material_id", null: false
+    t.bigint "quality_id"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blueprint_id"], name: "index_materials_on_blueprint_id"
+    t.index ["material_type", "material_id"], name: "index_materials_on_material"
+    t.index ["quality_id"], name: "index_materials_on_quality_id"
+  end
+
   create_table "qualities", force: :cascade do |t|
     t.string "quality_id"
     t.string "name_en"
@@ -80,5 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_10_212335) do
   end
 
   add_foreign_key "blueprints", "types"
+  add_foreign_key "materials", "blueprints"
+  add_foreign_key "materials", "qualities"
   add_foreign_key "types", "categories"
 end
