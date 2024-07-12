@@ -54,14 +54,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_11_002939) do
 
   create_table "materials", force: :cascade do |t|
     t.bigint "blueprint_id", null: false
-    t.string "material_type", null: false
-    t.bigint "material_id", null: false
+    t.string "materialable_type", null: false
+    t.bigint "materialable_id", null: false
     t.bigint "quality_id"
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["blueprint_id"], name: "index_materials_on_blueprint_id"
-    t.index ["material_type", "material_id"], name: "index_materials_on_material"
+    t.index ["materialable_type", "materialable_id"], name: "index_materials_on_materialable"
     t.index ["quality_id"], name: "index_materials_on_quality_id"
   end
 

@@ -44,47 +44,47 @@ namespace :blueprints do
       #blueprint resource info
       resource = Resource.find_by(resource_id: "iron")
       amount = cell_val('y')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
 
       resource = Resource.find_by(resource_id: "wood")
       amount = cell_val('z')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
       resource = Resource.find_by(resource_id: "leather")
       amount = cell_val('aa')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
       resource = Resource.find_by(resource_id: "herbs")
       amount = cell_val('ab')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
       resource = Resource.find_by(resource_id: "steel")
       amount = cell_val('ac')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
       resource = Resource.find_by(resource_id: "ironwood")
       amount = cell_val('ad')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
       resource = Resource.find_by(resource_id: "fabric")
       amount = cell_val('ae')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
       resource = Resource.find_by(resource_id: "oils")
       amount = cell_val('af')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
       resource = Resource.find_by(resource_id: "mana")
       amount = cell_val('ag')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
       resource = Resource.find_by(resource_id: "gems")
       amount = cell_val('ah')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
       resource = Resource.find_by(resource_id: "essence")
       amount = cell_val('ai')
-      blueprint.materials.create(material: resource, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
 
       # blueprint.save!
@@ -113,7 +113,7 @@ namespace :blueprints do
       else
         component = Component.find_by(name_en: name)
       end
-      blueprint.materials.create(material: component, quality: quality, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: component, quality: quality, amount: amount) if amount != nil
 
       # component 2
       quality = Quality.find_by(name_en: cell_val('ao'))
@@ -124,7 +124,7 @@ namespace :blueprints do
       else
         component = Component.find_by(name_en: name)
       end
-      blueprint.materials.create(material: component, quality: quality, amount: amount) if amount != nil
+      blueprint.materials.create(materialable: component, quality: quality, amount: amount) if amount != nil
 
 
       puts "Blueprint Component updated successfully: #{blueprint.name_en}"
