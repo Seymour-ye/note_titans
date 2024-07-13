@@ -22,6 +22,9 @@ namespace :blueprints do
       end
       blueprint.type = Type.find_by(name_en: type)
 
+      # blueprint unlock type
+      prerequisite = cell_val('c')
+
       # blueprint item info
       blueprint.tier = cell_val('f')
       blueprint.value = cell_val('g')
@@ -151,6 +154,28 @@ namespace :blueprints do
     end 
     puts "Chinese Translation updated successfully."
   end
+
+  desc "import the blueprint unlock types from xlsx"
+  task import_unlock_type: :environment do 
+    url = Rails.root.join('lib', 'assets', 'data_sheets', 'data_collected.xlsx')
+    xlsx = Roo::Excelx.new(url.to_s)
+    @sheet = xlsx.sheet("BlueprintType")
+    (2..@sheet.last_row).each do |row|
+      @row = row 
+
+      type_id = cell_val('a')
+      type = BlueprintType.find_or_create_by(type_id: type_id)
+
+      type.description_en = cell_val('b')
+      type.description_zh = cell_val('c')
+
+      type.save!
+
+      # puts "Blueprint Unlock Type imported successfully: #{type.type_id}"
+    end 
+    puts "Blueprint Unlock Type imported successfully"
+  end 
+
 
   def cell_val(col)
     @sheet.cell(@row,col) unless @sheet.cell(@row,col) == '---'

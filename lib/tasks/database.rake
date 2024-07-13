@@ -10,6 +10,9 @@ namespace :database do
     Rake::Task["categories:import"].invoke
     Rake::Task["categories:type_import"].invoke 
     Rake::Task["quality:import"].invoke
+    Rake::Task["worker:import"].invoke
+    Rake::Task["worker:zh_update"].invoke
+    Rake::Task["blueprints:import_unlock_type"].invoke
 
     Rake::Task["blueprints:import"].invoke
     Rake::Task["blueprints:import_components"].invoke
@@ -24,6 +27,9 @@ namespace :database do
     Rake::Task["categories:import"].invoke
     Rake::Task["categories:type_import"].invoke
     Rake::Task["quality:import"].invoke
+    Rake::Task["worker:import"].invoke
+    Rake::Task["worker:zh_update"].invoke
+    Rake::Task["blueprints:import_unlock_type"].invoke
 
     Rake::Task["blueprints:import"].invoke 
     Rake::Task["blueprints:import_components"].invoke

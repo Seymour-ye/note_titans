@@ -1,5 +1,6 @@
 class Blueprint < ApplicationRecord
   belongs_to :type
+  # belongs_to :unlock_type
   has_many :materials, dependent: :destroy
   has_many :components, through: :materials, source: :materialable, source_type: 'Component'
   has_many :precrafts, through: :materials, source: :materialable, source_type: 'Blueprint'
@@ -21,5 +22,9 @@ class Blueprint < ApplicationRecord
 
   def img
       "Fan Kit Assets (Shop Titans)/Items/#{self.type.folder_name}/#{self.blueprint_id}.png"
+  end
+
+  def unlock_description
+    self.unlock_type.description
   end
 end
