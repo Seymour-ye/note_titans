@@ -23,7 +23,22 @@ namespace :blueprints do
       blueprint.type = Type.find_by(name_en: type)
 
       # blueprint unlock type
+      special_free = ["Intro Tutorial", "Collection Book"]
+      lcog = ["Luxurious Chest", "Opulent Chest", "Platinum Chest"]
+      artifact = ["Major Artifact Chest", "Minor Artifact Chest"]
       prerequisite = cell_val('c')
+      if !prerequisite || prerequisite.in?(special_free) || prerequisite.include?("Content Pass") || Worker.find_by(profession_en: prerequisite)
+        type = UnlockType.find_by(type_id: 'blue')
+      elsif prerequisite.in?(lcog)
+        type = UnlockType.find_by(type_id: 'lcog')
+      elsif prerequisite.in?(artifact)
+        type = UnlockType.find_by(type_id: 'artifact')
+      elsif prerequisite.include?("Chest")
+        type = UnlockType.find_by(type_id: "chest")
+      elsif prerequisite.include?("Pack") || prerequisite.include?("Offer")
+        type = UnlockType.find_by(type_id: 'premium')
+      end
+      blueprint.unlock_type = type
 
       # blueprint item info
       blueprint.tier = cell_val('f')
@@ -32,6 +47,7 @@ namespace :blueprints do
       # blueprint crafting info
       blueprint.craft_time = cell_val('h')
       blueprint.antique_tokens = cell_val('e')
+      blueprint.research_scrolls = cell_val('d')
 
       # blueprint XP info
       blueprint.worker_xp = cell_val('m')
@@ -103,8 +119,20 @@ namespace :blueprints do
       amount = cell_val('ai')
       blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
       
+      # Energy
+      blueprint.discount_energy = cell_val('bs')
+      blueprint.surcharge_energy = cell_val('bt')
+      blueprint.suggest_energy = cell_val('bu')
+      blueprint.speed_up_energy = cell_val('bv')
 
-      # blueprint.save!
+      # Equip Attr
+      blueprint.atk = cell_val('ar')
+      blueprint.def = cell_val('as')
+      blueprint.hp = cell_val('at')
+      blueprint.eva = cell_val('au')
+      blueprint.crit = cell_val('av')
+
+      blueprint.save!
 
       puts "Blueprint imported successfully: #{name_en}"
     end 
@@ -178,7 +206,7 @@ namespace :blueprints do
       @row = row 
 
       type_id = cell_val('a')
-      type = BlueprintType.find_or_create_by(type_id: type_id)
+      type = UnlockType.find_or_create_by(type_id: type_id)
 
       type.description_en = cell_val('b')
       type.description_zh = cell_val('c')

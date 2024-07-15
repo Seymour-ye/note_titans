@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_13_193236) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_15_225945) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_13_193236) do
     t.string "name_zh"
     t.string "blueprint_id"
     t.bigint "type_id", null: false
+    t.integer "research_scrolls"
     t.integer "tier"
     t.integer "value"
     t.integer "craft_time"
@@ -46,9 +47,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_13_193236) do
     t.integer "antique_tokens"
     t.integer "favor"
     t.integer "airship_power"
+    t.integer "discount_energy"
+    t.integer "surcharge_energy"
+    t.integer "suggest_energy"
+    t.integer "speed_up_energy"
+    t.integer "atk"
+    t.integer "def"
+    t.integer "hp"
+    t.integer "eva"
+    t.integer "crit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "unlock_type_id", null: false
     t.index ["type_id"], name: "index_blueprints_on_type_id"
+    t.index ["unlock_type_id"], name: "index_blueprints_on_unlock_type_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -110,6 +122,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_13_193236) do
     t.index ["category_id"], name: "index_types_on_category_id"
   end
 
+  create_table "unlock_types", force: :cascade do |t|
+    t.string "type_id"
+    t.string "description_en"
+    t.string "description_zh"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "workers", force: :cascade do |t|
     t.string "worker_id"
     t.string "name_en"
@@ -123,6 +143,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_13_193236) do
   add_foreign_key "blueprint_workers", "blueprints"
   add_foreign_key "blueprint_workers", "workers"
   add_foreign_key "blueprints", "types"
+  add_foreign_key "blueprints", "unlock_types"
   add_foreign_key "materials", "blueprints"
   add_foreign_key "materials", "qualities"
   add_foreign_key "types", "categories"

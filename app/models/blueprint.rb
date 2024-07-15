@@ -1,6 +1,6 @@
 class Blueprint < ApplicationRecord
   belongs_to :type
-  # belongs_to :unlock_type
+  belongs_to :unlock_type 
 
   has_many :blueprint_workers
   has_many :workers, through: :blueprint_workers
