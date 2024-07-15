@@ -44,7 +44,21 @@ namespace :blueprints do
 
       blueprint.save!
 
-      #blueprint resource info
+      # blueprint worker info
+      worker = Worker.find_by(profession_en: cell_val('r'))
+      level = cell_val('s')
+      BlueprintWorker.create(blueprint: blueprint, worker: worker, level: level) if worker != nil
+
+      worker = Worker.find_by(profession_en: cell_val('t'))
+      level = cell_val('u')
+      BlueprintWorker.create(blueprint: blueprint, worker: worker, level: level) if worker != nil
+
+      worker = Worker.find_by(profession_en: cell_val('v'))
+      level = cell_val('w')
+      BlueprintWorker.create(blueprint: blueprint, worker: worker, level: level) if worker != nil
+
+
+      # blueprint resource info
       resource = Resource.find_by(resource_id: "iron")
       amount = cell_val('y')
       blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
