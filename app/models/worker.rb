@@ -1,4 +1,6 @@
 class Worker < ApplicationRecord
+    has_many :blueprint_workers
+    has_many :blueprints, through: :blueprint_workers
     def name
         if I18n.locale == :zh && self.name_zh != nil
             self.name_zh

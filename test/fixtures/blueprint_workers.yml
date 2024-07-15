@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blueprint: one
+  worker: one
+  level: 1
+
+two:
+  blueprint: two
+  worker: two
+  level: 1

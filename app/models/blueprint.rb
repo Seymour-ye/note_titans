@@ -1,6 +1,11 @@
 class Blueprint < ApplicationRecord
   belongs_to :type
   # belongs_to :unlock_type
+
+  has_many :blueprint_workers
+  has_many :workers, through: :blueprint_workers
+
+  # crafting materials
   has_many :materials, dependent: :destroy
   has_many :components, through: :materials, source: :materialable, source_type: 'Component'
   has_many :precrafts, through: :materials, source: :materialable, source_type: 'Blueprint'

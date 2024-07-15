@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_13_023224) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_13_193236) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_13_023224) do
     t.string "description_zh"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "blueprint_workers", force: :cascade do |t|
+    t.bigint "blueprint_id", null: false
+    t.bigint "worker_id", null: false
+    t.integer "level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blueprint_id"], name: "index_blueprint_workers_on_blueprint_id"
+    t.index ["worker_id"], name: "index_blueprint_workers_on_worker_id"
   end
 
   create_table "blueprints", force: :cascade do |t|
@@ -110,6 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_13_023224) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "blueprint_workers", "blueprints"
+  add_foreign_key "blueprint_workers", "workers"
   add_foreign_key "blueprints", "types"
   add_foreign_key "materials", "blueprints"
   add_foreign_key "materials", "qualities"
