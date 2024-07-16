@@ -6,10 +6,10 @@
             <% end %>
         </li>
         <li class="<%= active_class 'static_pages' %>"><%= link_to t('navigation.home'), root_path %></li>
-        <li class="<%= active_class 'blueprints' %>"><%= link_to t("navigation.blueprints"), "" %></li>
+        <li class="<%= active_class 'blueprints' %>"><%= link_to t("navigation.blueprints"), blueprints_path %></li>
         <li class="<%= active_class '' %>"><%= link_to t('navigation.heroes'), "#" %></li>
         <li class="<%= active_class '' %>"><%= link_to t('navigation.events'), "#" %></li>
-        <li class="<%= active_class 'calendar' %>"><%= link_to t('navigation.calendar'), "" %></li>
+        <li class="<%= active_class 'calendar' %>"><%= link_to t('navigation.calendar'), "#" %></li>
     </ul>
 
     <div id="language-switch">

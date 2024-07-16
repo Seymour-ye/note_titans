@@ -14,7 +14,7 @@ namespace :worker do
 
       worker.save!
 
-      puts "Worker imported successfully: #{profession_en}"
+      # puts "Worker imported successfully: #{profession_en}"
     end 
     puts "Worker imported successfully."
   end
@@ -36,7 +36,7 @@ namespace :worker do
 
       worker.save!
 
-      puts "Worker Chinese Translation updated successfully: #{worker.profession_zh}"
+      # puts "Worker Chinese Translation updated successfully: #{worker.profession_zh}"
     end 
     puts "Worker Chinese Translation updated succesfully."
   end

@@ -4,6 +4,11 @@ You may not redistribute any of these assets or monetize any project using these
 
 # Changelog
 
+# July 9th, 2024
+  * Added assets for new Artifact blueprints and components.
+  * Added assets for Pirate Content Pass.
+  * Added assets for Sunken Temple Mega and Superior Packs.
+
 # July 2nd, 2024
   * Added asset for Platinum Greatsword.
   * Added assets for Goose Spirit.

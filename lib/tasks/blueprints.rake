@@ -134,8 +134,9 @@ namespace :blueprints do
 
       blueprint.save!
 
-      puts "Blueprint imported successfully: #{name_en}"
+      # puts "Blueprint imported successfully: #{name_en}"
     end 
+    puts "Blueprint imported successfully."
   end
 
   desc "import components required by blueprint crafting from google spreadsheet"
@@ -172,8 +173,9 @@ namespace :blueprints do
       blueprint.materials.create(materialable: component, quality: quality, amount: amount) if amount != nil
 
 
-      puts "Blueprint Component updated successfully: #{blueprint.name_en}"
+      # puts "Blueprint Component updated successfully: #{blueprint.name_en}"
     end 
+    puts "Blueprint Vomponent updated successfully."
   end
 
   desc "update the blueprints chinese translation and id from xlsx"
@@ -217,6 +219,17 @@ namespace :blueprints do
     end 
     puts "Blueprint Unlock Type imported successfully"
   end 
+
+  desc "check for blueprint updates"
+  task check_update: :environment do 
+    puts "=============Check Blueprint update================"
+    Blueprint.all.each do |blueprint|
+      if !blueprint.blueprint_id || !blueprint.name_zh 
+        puts "#{blueprint.name_en}  #{blueprint.type.name_zh}"
+      end
+    end
+    puts "=====================DONE=========================="
+  end
 
 
   def cell_val(col)

@@ -1,0 +1,144 @@
+#blueprints {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    a {
+      list-style: none;
+      text-decoration: none;
+      color: white;
+    }
+
+}
+
+.blueprint {
+  background-color: #864868; 
+  width: 10rem;
+  margin: 3px;
+  padding: 3px;
+  text-align: center;
+  height: 15rem;
+
+  .resources_listing{
+    display: flex;
+
+    .crafting_resource{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      img {
+        width: 2em;
+      }
+    }
+  }
+    
+}
+
+#blueprint_filters {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  position: sticky;
+  top: 3em;
+  background-color: rgb(61,61,61);
+  color: white;
+
+  nav {
+    position: relative;
+    width: 7em;
+
+    ul {
+      display: block;
+      width: 7em;
+      height: 100%;
+      li {
+        text-align: center;
+        height: 20%;
+        min-height: 2em;
+      }
+    }
+  }
+
+  label {
+    width: 2em;
+    height: 2em;
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+    background-color: rgb(100,100,100);
+  }
+
+  button {
+    margin-left: 5px;
+    background-color: rgb(80,80,80);
+    img {
+      width: 2em;
+      height: 2em;
+    }
+  }
+
+  input[type=checkbox]:checked + label {
+    width: 2em;
+    background-color: rgb(61,61,61);
+  }
+
+  input[type="checkbox"] {
+    display: none;
+    visibility: hidden;
+  }
+
+  img {
+    width: 30px;
+    display: block;
+  }
+
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+
+  form {
+    background-color: slategray;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    height: max-content;
+  }
+
+  .filter-container {
+    display: block;
+    padding: 2px;
+
+    .filter {
+      display: none;
+      align-items: center;
+    }
+  
+    .filter.active {
+      display: block;
+
+      .filter-line {
+        display: flex;
+        align-items: start;
+
+        .filter_name {
+          width: 6em;
+          min-width: 6em;
+          text-align: center;
+          display: inline;
+        }
+
+        .filter_options {
+
+        }
+      }
+    }
+  }
+
+  
+}

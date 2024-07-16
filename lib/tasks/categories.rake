@@ -15,8 +15,9 @@ namespace :categories do
 
       category.save!
 
-      puts "Category imported successfully: #{category.name_zh}"
+      # puts "Category imported successfully: #{category.name_zh}"
     end
+    puts "Category imported successfully."
   end
 
   desc "import the types from xlsx"
@@ -39,7 +40,7 @@ namespace :categories do
 
       # puts "Item Type imported successfully: #{type.name_zh} (#{type.category.name_zh})"
     end
-    puts "Categories imported successfully"
+    puts "Item Types imported successfully"
   end
 
   def cell_val(col)
