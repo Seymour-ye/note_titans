@@ -11,13 +11,64 @@
 
 }
 
-.blueprint {
+.blueprint_card {
   background-color: #864868; 
-  width: 10rem;
+  width: 15rem;
   margin: 3px;
   padding: 3px;
   text-align: center;
-  height: 15rem;
+  height: 20rem;
+
+  .image_tags {
+    display: flex;
+    width: 15rem;
+    align-items: center;
+    height: 7rem;
+  }
+  
+  .item_tag, .crafting_tag {
+    display: flex;
+    flex-direction: column;
+    width: 2rem;
+    height: 7rem;
+    /* align-items: flex-start; */
+    /* align-items: center; */
+    /* align-content: flex-start; */
+
+    img {
+      width: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  
+  .blueprint_tag {
+    position: relative;
+    width: 11rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 7rem; */
+
+    .blueprint_background img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 11rem;
+      object-fit: cover;
+      /* z-index: 0; */
+    }
+    
+    .blueprint_img img {
+      padding: 2rem;
+      position: relative;
+      /* z-index: 1; */
+      width: 7rem;
+    }
+  }
+  
+
+  
 
   .resources_listing{
     display: flex;

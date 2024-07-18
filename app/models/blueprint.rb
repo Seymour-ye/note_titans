@@ -13,6 +13,7 @@ class Blueprint < ApplicationRecord
 
   has_many :material_postcrafts, class_name: 'Material', foreign_key: 'materialable_id', as: :materialable
   has_many :postcrafts, through: :material_postcrafts, source: :blueprint
+  
   def name
     if I18n.locale == :zh && self.name_zh != nil
         self.name_zh
@@ -27,6 +28,10 @@ class Blueprint < ApplicationRecord
 
   def img
       "Fan Kit Assets (Shop Titans)/Items/#{self.type.folder_name}/#{self.blueprint_id}.png"
+  end
+
+  def img_tier
+      "Fan Kit Assets (Shop Titans)/Market Filters/Tier Filters/icon_global_search_#{self.tier.humanize}_selected.png"
   end
 
   def unlock_description

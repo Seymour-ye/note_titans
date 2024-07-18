@@ -1,28 +1,34 @@
-<div id="<%= dom_id blueprint %>" class="blueprint">
-  <%= image_tag blueprint.img, alt: blueprint.name %>
-  <p>
-    <strong>Name en:</strong>
-    <%= blueprint.name_en %>
-  </p>
+<div id="<%= dom_id blueprint %>" class="blueprint_card">
+  <div class="image_tags">
+    <div class="item_tag">
+      <div class="tier_tag">
+        <%= image_tag blueprint.img_tier %>
+      </div>
+    </div>
+    <div class="blueprint_tag">
+      <div class="blueprint_background">
+        <%= image_tag blueprint.unlock_type.img_bg %>
+      </div>
+      <div class="blueprint_img">
+        <%= image_tag blueprint.img, alt: blueprint.name %>
+      </div>
+    </div>
+    <div class="crafting_tag">
+        <% blueprint.blueprint_workers.each do |w| %>
+          <%= image_tag w.worker.img, alt: w.worker.profession %>
+          <%= w.level %>
+        <% end %>
+    </div>
 
-  <p>
-    <strong>Name zh:</strong>
-    <%= blueprint.name_zh %>
-  </p>
+  </div>
+  <div class="blueprint_name">
+    <%= blueprint.name %>
+  </div>
+  <div class="crafting_material">
 
+  </div>
   <p>
-    <strong>Type:</strong>
-    <%= blueprint.type_id %>
-  </p>
-
-  <p>
-    <strong>Blueprint:</strong>
-    <%= blueprint.blueprint_id %>
-  </p>
-
-  <p>
-    <strong>Tier:</strong>
-    <%= blueprint.tier %>
+    <%= "T#{blueprint.tier} #{blueprint.type.name}" %>
   </p>
 
   <p>
@@ -30,14 +36,5 @@
     <%= blueprint.value %>
   </p>
 
-  <p>
-    <strong>Craft time:</strong>
-    <%= blueprint.craft_time %>
-  </p>
-
-  <p>
-    <strong>Merchant xp:</strong>
-    <%= blueprint.merchant_xp %>
-  </p>
 
 </div>

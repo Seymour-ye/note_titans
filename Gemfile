@@ -86,3 +86,5 @@ gem "chronic_duration", "~> 0.10.6"
 gem "jquery-rails", "~> 4.6"
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "humanize", "~> 3.1"
