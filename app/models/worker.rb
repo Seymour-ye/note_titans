@@ -2,22 +2,22 @@ class Worker < ApplicationRecord
     has_many :blueprint_workers
     has_many :blueprints, through: :blueprint_workers
     def name
-        if I18n.locale == :zh && self.name_zh != nil
-            self.name_zh
+        if I18n.locale == :zh && name_zh != nil
+            name_zh
         else
-            self.name_en
+            name_en
         end
     end
 
     def profession
-        if I18n.locale == :zh && self.name_zh != nil
-            self.name_zh
+        if I18n.locale == :zh && name_zh != nil
+            name_zh
         else
-            self.name_en
+            name_en
         end
     end
 
     def img
-        "Fan Kit Assets (Shop Titans)/Character Portraits/#{self.worker_id}_head.png"
+        "Fan Kit Assets (Shop Titans)/Character Portraits/#{worker_id}_head.png"
     end
 end

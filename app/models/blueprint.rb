@@ -15,26 +15,26 @@ class Blueprint < ApplicationRecord
   has_many :postcrafts, through: :material_postcrafts, source: :blueprint
   
   def name
-    if I18n.locale == :zh && self.name_zh != nil
-        self.name_zh
+    if I18n.locale == :zh && name_zh != nil
+        name_zh
     else
-        self.name_en
+        name_en
     end
   end
 
   def category
-    self.type.category 
+    type.category 
   end
 
   def img
-      "Fan Kit Assets (Shop Titans)/Items/#{self.type.folder_name}/#{self.blueprint_id}.png"
+      "Fan Kit Assets (Shop Titans)/Items/#{type.folder_name}/#{blueprint_id}.png"
   end
 
   def img_tier
-      "Fan Kit Assets (Shop Titans)/Market Filters/Tier Filters/icon_global_search_#{self.tier.humanize}_selected.png"
+      "Fan Kit Assets (Shop Titans)/Market Filters/Tier Filters/icon_global_search_#{tier.humanize}_selected.png"
   end
 
   def unlock_description
-    self.unlock_type.description
+    unlock_type.description
   end
 end

@@ -16,73 +16,98 @@
   width: 15rem;
   margin: 3px;
   padding: 3px;
+  margin-top: 1.5rem;
   text-align: center;
-  height: 20rem;
+  height: 17rem;
+  color: white;
 
   .image_tags {
     display: flex;
     width: 15rem;
     align-items: center;
     height: 7rem;
-  }
-  
-  .item_tag, .crafting_tag {
-    display: flex;
-    flex-direction: column;
-    width: 2rem;
-    height: 7rem;
-    /* align-items: flex-start; */
-    /* align-items: center; */
-    /* align-content: flex-start; */
 
-    img {
-      width: 2rem;
-      margin-bottom: 0.5rem;
-    }
-  }
-  
-  
-  .blueprint_tag {
-    position: relative;
-    width: 11rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* height: 7rem; */
-
-    .blueprint_background img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 11rem;
-      object-fit: cover;
-      /* z-index: 0; */
-    }
-    
-    .blueprint_img img {
-      padding: 2rem;
-      position: relative;
-      /* z-index: 1; */
-      width: 7rem;
-    }
-  }
-  
-
-  
-
-  .resources_listing{
-    display: flex;
-
-    .crafting_resource{
+    .item_tag, .crafting_tag {
       display: flex;
       flex-direction: column;
-      text-align: center;
+      width: 2rem;
+      height: 7rem;
+  
       img {
-        width: 2em;
+        width: 2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .blueprint_tag {
+      position: relative;
+      width: 11rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      .blueprint_background img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 11rem;
+        object-fit: cover;
+      }
+      
+      .blueprint_img img {
+        padding: 2rem;
+        position: relative;
+        width: 7rem;
       }
     }
   }
-    
+
+  .blueprint_name {
+    display: inline-block;
+    position: relative;
+    img {
+      width: 13rem;
+      object-fit: cover;
+      position: relative;
+      display: block;
+    }
+
+    h3 {
+      width: 13rem;
+      position: absolute;
+      top: 0%; 
+      left: 50%; 
+      transform: translate(-50%, -50%); /* Center the text */
+      color: white; /* Adjust text color as needed */
+      font-size: 20px; /* Adjust font size as needed */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+    }
+  }
+  
+  .crafting_materials {
+    display: flex;
+    justify-content: center;
+
+    .material {
+      padding: 3px;
+      display: flex;
+      flex-direction: column;
+      img {
+        width: 2rem;
+      }
+    }
+  } 
+}
+
+.item_info {
+  .attribute {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 2rem;
+    }
+  }
 }
 
 #blueprint_filters {

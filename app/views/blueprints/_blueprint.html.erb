@@ -22,19 +22,21 @@
 
   </div>
   <div class="blueprint_name">
-    <%= blueprint.name %>
+    <%= image_tag  blueprint_name_bg_img %>
+    <h3><%= blueprint.name %></h2>
   </div>
-  <div class="crafting_material">
-
+  <div class="crafting_materials">
+    <% blueprint.materials.each do |m| %>
+      <div class="material">
+        <%= image_tag m.materialable.img %>
+        <%= m.amount %>
+      </div>
+    <% end %>
   </div>
-  <p>
-    <%= "T#{blueprint.tier} #{blueprint.type.name}" %>
-  </p>
-
-  <p>
-    <strong>Value:</strong>
-    <%= blueprint.value %>
-  </p>
-
-
+  <div class="item_info">
+    <div class="attribute">
+      <%= image_tag currency_gold_img %>
+      <%= number_to_delimited(blueprint.value) %>
+    </div>
+  </div>
 </div>
