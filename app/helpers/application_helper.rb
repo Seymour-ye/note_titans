@@ -12,4 +12,8 @@ module ApplicationHelper
     def currency_gold_img
         'Fan Kit Assets (Shop Titans)/Currencies/icon_global_gold.png'
     end
+
+    def worker_bg_img
+        'Fan Kit Assets (Shop Titans)/Player Level Loops & Titles/Rims/img_card_circle_blueprint_gold_rim.png'
+    end
 end

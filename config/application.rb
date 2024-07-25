@@ -14,6 +14,7 @@ module NoteTitans
     config.i18n.available_locales = [:en, :zh]
     config.i18n.default_locale = :en
 
+    config.autoload_paths += %W(#{config.root}/lib/modules)
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

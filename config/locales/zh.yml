@@ -144,3 +144,8 @@ zh:
       - 十月
       - 十一月
       - 十二月
+  time:
+    days: "天"
+    hours: "时"
+    minutes: "分"
+    seconds: "秒"

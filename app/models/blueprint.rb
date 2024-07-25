@@ -22,6 +22,10 @@ class Blueprint < ApplicationRecord
     end
   end
 
+  def craft_time_formatted
+    formatted_time(craft_time)
+  end
+
   def category
     type.category 
   end

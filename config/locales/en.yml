@@ -144,4 +144,10 @@ en:
       - October
       - November
       - December
+  time:
+    days: "d"
+    hours: "h"
+    minutes: "m"
+    seconds: "s"
+
 
