@@ -42,7 +42,8 @@
   <div class="crafting_materials">
     <% blueprint.materials.each do |m| %>
       <div class="material">
-        <%= image_tag m.materialable.img %>
+        <% quality = m.quality ? m.quality.quality_id : "" %>
+        <%= image_tag m.materialable.img, class: quality %>
         <%= m.amount %>
       </div>
     <% end %>

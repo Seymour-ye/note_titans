@@ -3,7 +3,7 @@ class BlueprintsController < ApplicationController
 
   # GET /blueprints or /blueprints.json
   def index
-    @blueprints = Blueprint.all.includes(:type, :unlock_type, blueprint_workers: [:worker], materials: [:materialable])
+    @blueprints = Blueprint.all.includes(:type, :unlock_type, blueprint_workers: [:worker], materials: [:materialable, :quality])
   end
 
   # GET /blueprints/1 or /blueprints/1.json

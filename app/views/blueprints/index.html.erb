@@ -2,6 +2,8 @@
 
 <h1><%= t('navigation.blueprints') %></h1>
 
+<%= render 'blueprints/filter_container' %>
+
 <div id="blueprints">
   <% @blueprints.each do |blueprint| %>
     <%= link_to(blueprint) do %>
@@ -9,5 +11,3 @@
     <% end %>
   <% end %>
 </div>
-
-<%# link_to "New blueprint", new_blueprint_path %>
