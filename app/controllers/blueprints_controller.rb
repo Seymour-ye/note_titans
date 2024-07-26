@@ -57,6 +57,10 @@ class BlueprintsController < ApplicationController
     end
   end
 
+  def filter_update
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_blueprint
