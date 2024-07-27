@@ -1,0 +1,21 @@
+<div class="filter active" filter-target="category">
+    <% @categories.each do |cat| %>
+        <div class="filter-line">
+            <div class="filter_name"><%= cat.name %></div>
+            <div class="filter_options">
+                <% cat.types.each do |type| %>
+                    <%= form.check_box :type, {
+                        id: "type_#{type.type_id}",
+                        value: type.type_id,
+                        multiple: true,
+                        onchange: "this.form.requestSubmit();",
+                        checked: true
+                    }, type.type_id, nil %>
+                    <%= form.label "type_#{type.type_id}" do %>
+                        <%= image_tag type.img, alt: type.type_id %>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>

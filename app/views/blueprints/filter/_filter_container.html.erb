@@ -1,0 +1,31 @@
+<div id="blueprint_filters">
+    <%= form_with url: filter_update_path, method: :put do |form| %>
+        <nav id="filter-side-bar">
+            <ul>
+                <li filter-target="attributes"> <%= t("attributes") %></li>
+                <li filter-target="category" class="active"><%= t("category") %></li>
+                <li filter-target="resource"><%= t("resource") %></li>
+                <li filter-target="components"><%= t("components") %></li>
+                <li filter-target="sort_by"><%= t("sort_by") %></li>
+            </ul>
+        </nav>
+
+        <div class="filter-container">
+            <%= render partial: 'blueprints/filter/attributes', locals: {
+                form: form
+            } %>
+
+            <%= render partial: 'blueprints/filter/categories', locals: {
+                form: form
+            } %>
+
+            <%= render partial: 'blueprints/filter/resources', locals: {
+                form: form
+            } %>
+
+            <%= render partial: 'blueprints/filter/components', locals: {
+                form: form
+            } %>
+        </div>
+    <% end %>
+</div>

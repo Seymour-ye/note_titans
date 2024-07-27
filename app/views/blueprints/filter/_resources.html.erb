@@ -1,0 +1,36 @@
+<div class="filter" filter-target="resource">
+    <div class="filter-line">
+        <div class="filter_name"><%= t("inclusion") %></div>
+        <div class="filter_options">
+            <% @resources.each do |resource| %>
+                <%= form.check_box :valid_resource, {
+                    id: "valid_resource_#{resource.resource_id}",
+                    value: resource.resource_id,
+                    multiple: true,
+                    onchange: "this.form.requestSubmit();",
+                    checked: true
+                }, resource.resource_id, nil %>
+                <%= form.label "valid_resource_#{resource.resource_id}" do %>
+                    <%= image_tag resource.img, alt: resource.resource_id %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    <div class="filter-line">
+        <div class="filter_name"><%= t("exclusion") %></div>
+        <div class="filter_options">
+            <% @resources.each do |resource| %>
+                <%= form.check_box :invalid_resource, {
+                    id: "invalid_resource_#{resource.resource_id}",
+                    value: resource.resource_id,
+                    multiple: true,
+                    onchange: "this.form.requestSubmit();",
+                    checked: false
+                }, resource.resource_id, nil %>
+                <%= form.label "invalid_resource_#{resource.resource_id}" do %>
+                    <%= image_tag resource.img, alt: resource.resource_id %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

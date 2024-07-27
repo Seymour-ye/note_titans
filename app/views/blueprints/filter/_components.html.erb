@@ -1,0 +1,36 @@
+<div class="filter" filter-target="components">
+    <div class="filter-line">
+        <div class="filter_name"><%= t("inclusion") %></div>
+        <div class="filter_options">
+            <% @components.each do |component| %>
+                <%= form.check_box :valid_component, {
+                    id: "valid_component_#{component.component_id}",
+                    value: component.component_id,
+                    multiple: true,
+                    onchange: "this.form.requestSubmit();",
+                    checked: true
+                }, component.component_id, nil %>
+                <%= form.label "valid_component_#{component.component_id}" do %>
+                    <%= image_tag component.img, alt: component.component_id %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+    <div class="filter-line">
+        <div class="filter_name"><%= t("exclusion") %></div>
+        <div class="filter_options">
+            <% @components.each do |component| %>
+                <%= form.check_box :invalid_component, {
+                    id: "invalid_component_#{component.component_id}",
+                    value: component.component_id,
+                    multiple: true,
+                    onchange: "this.form.requestSubmit();",
+                    checked: false
+                }, component.component_id, nil %>
+                <%= form.label "invalid_component_#{component.component_id}" do %>
+                    <%= image_tag component.img, alt: component.component_id %>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>

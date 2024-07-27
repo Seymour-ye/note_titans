@@ -1,0 +1,20 @@
+<div class="filter" filter-target="attributes">
+    <div class="filter-line">
+        <div class="filter_name"><%= t("tier") %></div>
+        <div class="filter_options">
+            <% @tiers.each do |tier| %>
+                <%= form.check_box :tier, {
+                    id: "tier_#{tier}",
+                    value: tier,
+                    multiple: true,
+                    onchange: "this.form.requestSubmit();",
+                    checked: true
+                }, tier, nil %>
+                <%= form.label "tier_#{tier}" do %>
+                    <%= image_tag tier_bg_img %>
+                    <span class="text-overlay"><%= tier %></span>
+                <% end %>
+            <% end %>
+        </div>
+    </div>
+</div>
