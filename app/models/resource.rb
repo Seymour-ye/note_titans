@@ -1,4 +1,5 @@
 class Resource < ApplicationRecord
+    default_scope { order(:id) }
     has_many :materials, as: :materialable
     def name
         if I18n.locale == :zh && name_zh != nil

@@ -5,7 +5,8 @@ en:
   tower_of_titans: "Tower of Titans"
 
   flash_quest: "Flash Quest"
-
+  
+  attributes: "Attributes"
   tier: "Tier"
   category: "Category"
   resource: "Resource"

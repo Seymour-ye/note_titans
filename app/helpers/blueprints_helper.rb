@@ -3,10 +3,6 @@ module BlueprintsHelper
     "Fan Kit Assets (Shop Titans)/Player Level Loops & Titles/Banners/img_player_titles_01.png"
   end
 
-  def tier_bg_img
-    "Fan Kit Assets (Shop Titans)/Misc Icons/icon_global_level_item_s_r.png"
-  end
-
   def craft_time_img
     "Fan Kit Assets (Shop Titans)/Misc Icons/icon_global_timer.png"
   end

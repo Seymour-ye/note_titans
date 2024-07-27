@@ -5,6 +5,14 @@ module ApplicationHelper
         controller_name == controller.controller_name ? 'active' : ''
     end
 
+    def tier_img(tier)
+        "Fan Kit Assets (Shop Titans)/Market Filters/Tier Filters/icon_global_search_#{Humanize.format(tier)}_selected.png"
+    end
+
+    def tier_bg_img
+        "Fan Kit Assets (Shop Titans)/Misc Icons/icon_global_level_item_s_r.png"
+    end
+
     def game_icon
         'Fan Kit Assets (Shop Titans)/Logos/ShopTitans_Logo_RGB.png'
     end

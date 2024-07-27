@@ -1,4 +1,5 @@
 class Component < ApplicationRecord
+    default_scope { order(:id) }
     has_many :materials, as: :materialable
 
     def name

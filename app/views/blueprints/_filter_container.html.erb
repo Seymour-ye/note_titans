@@ -2,7 +2,7 @@
     <%= form_with url: filter_update_path, method: :put do |form| %>
         <nav id="filter-side-bar">
             <ul>
-                <li filter-target="tier"> <%= t("tier") %></li>
+                <li filter-target="attributes"> <%= t("attributes") %></li>
                 <li filter-target="category" class="active"><%= t("category") %></li>
                 <li filter-target="resource"><%= t("resource") %></li>
                 <li filter-target="components"><%= t("components") %></li>
@@ -11,6 +11,26 @@
         </nav>
 
         <div class="filter-container">
+            <div class="filter" filter-target="attributes">
+                <div class="filter-line">
+                    <div class="filter_name"><%= t("tier") %></div>
+                    <div class="filter_options">
+                        <% @tiers.each do |tier| %>
+                            <%= form.check_box :tier, {
+                                id: "tier_#{tier}",
+                                value: tier,
+                                multiple: true,
+                                onchange: "this.form.requestSubmit();",
+                                checked: true
+                            }, tier, nil %>
+                            <%= form.label "tier_#{tier}" do %>
+                                <%= image_tag tier_bg_img %>
+                                <span class="text-overlay"><%= tier %></span>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
             <div class="filter active" filter-target="category">
                 <% @categories.each do |cat| %>
                     <div class="filter-line">
@@ -31,6 +51,78 @@
                         </div>
                     </div>
                 <% end %>
+            </div>
+            <div class="filter" filter-target="resource">
+                <div class="filter-line">
+                    <div class="filter_name"><%= t("inclusion") %></div>
+                    <div class="filter_options">
+                        <% @resources.each do |resource| %>
+                            <%= form.check_box :valid_resource, {
+                                id: "valid_resource_#{resource.resource_id}",
+                                value: resource.resource_id,
+                                multiple: true,
+                                onchange: "this.form.requestSubmit();",
+                                checked: true
+                            }, resource.resource_id, nil %>
+                            <%= form.label "valid_resource_#{resource.resource_id}" do %>
+                                <%= image_tag resource.img, alt: resource.resource_id %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="filter-line">
+                    <div class="filter_name"><%= t("exclusion") %></div>
+                    <div class="filter_options">
+                        <% @resources.each do |resource| %>
+                            <%= form.check_box :invalid_resource, {
+                                id: "invalid_resource_#{resource.resource_id}",
+                                value: resource.resource_id,
+                                multiple: true,
+                                onchange: "this.form.requestSubmit();",
+                                checked: false
+                            }, resource.resource_id, nil %>
+                            <%= form.label "invalid_resource_#{resource.resource_id}" do %>
+                                <%= image_tag resource.img, alt: resource.resource_id %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="filter" filter-target="components">
+                <div class="filter-line">
+                    <div class="filter_name"><%= t("inclusion") %></div>
+                    <div class="filter_options">
+                        <% @components.each do |component| %>
+                            <%= form.check_box :valid_component, {
+                                id: "valid_component_#{component.component_id}",
+                                value: component.component_id,
+                                multiple: true,
+                                onchange: "this.form.requestSubmit();",
+                                checked: true
+                            }, component.component_id, nil %>
+                            <%= form.label "valid_component_#{component.component_id}" do %>
+                                <%= image_tag component.img, alt: component.component_id %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="filter-line">
+                    <div class="filter_name"><%= t("exclusion") %></div>
+                    <div class="filter_options">
+                        <% @components.each do |component| %>
+                            <%= form.check_box :invalid_component, {
+                                id: "invalid_component_#{component.component_id}",
+                                value: component.component_id,
+                                multiple: true,
+                                onchange: "this.form.requestSubmit();",
+                                checked: false
+                            }, component.component_id, nil %>
+                            <%= form.label "invalid_component_#{component.component_id}" do %>
+                                <%= image_tag component.img, alt: component.component_id %>
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         </div>
     <% end %>

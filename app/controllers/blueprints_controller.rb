@@ -5,6 +5,9 @@ class BlueprintsController < ApplicationController
   def index
     @blueprints = Blueprint.all.includes(:type, :unlock_type, blueprint_workers: [:worker], materials: [:materialable, :quality])
     @categories = Category.all.includes(:types)
+    @resources = Resource.all
+    @components = Component.all
+    @tiers = (1..Blueprint.maximum(:tier)).to_a
   end
 
   # GET /blueprints/1 or /blueprints/1.json
