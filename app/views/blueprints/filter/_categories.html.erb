@@ -18,4 +18,10 @@
             </div>
         </div>
     <% end %>
+    <div class="filter-line">
+        <%= render partial: 'blueprints/filter/all_none', locals: {
+            form: form,
+            filter_target: "type"
+        } %>
+    </div>
 </div>

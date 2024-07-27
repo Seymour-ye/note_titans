@@ -14,6 +14,10 @@
                     <%= image_tag resource.img, alt: resource.resource_id %>
                 <% end %>
             <% end %>
+            <%= render partial: 'blueprints/filter/all_none', locals: {
+                form: form,
+                filter_target: "valid_resource"
+            } %>
         </div>
     </div>
     <div class="filter-line">
@@ -31,6 +35,10 @@
                     <%= image_tag resource.img, alt: resource.resource_id %>
                 <% end %>
             <% end %>
+            <%= render partial: 'blueprints/filter/all_none', locals: {
+                form: form,
+                filter_target: "invalid_resource"
+            } %>
         </div>
     </div>
 </div>

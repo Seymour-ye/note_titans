@@ -15,6 +15,10 @@
                     <span class="text-overlay"><%= tier %></span>
                 <% end %>
             <% end %>
+            <%= render partial: 'blueprints/filter/all_none', locals: {
+                form: form,
+                filter_target: "tier"
+            } %>
         </div>
     </div>
 </div>
