@@ -62,7 +62,7 @@ class BlueprintsController < ApplicationController
   end
 
   def filter_update
-
+    
   end
 
   private
