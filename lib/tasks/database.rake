@@ -27,4 +27,9 @@ namespace :database do
     Rake::Task["blueprints:zh_update"].invoke
   end
 
+  desc "list of tasks to check updates"
+  task check_update: :environment do 
+    Rake::Task["blueprints:check_update"].invoke
+  end
+
 end

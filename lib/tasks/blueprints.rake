@@ -61,6 +61,8 @@ namespace :blueprints do
       blueprint.save!
 
       # blueprint worker info
+      BlueprintWorker.where(blueprint_id: blueprint.id).destroy_all
+
       worker = Worker.find_by(profession_en: cell_val('r'))
       level = cell_val('s')
       BlueprintWorker.create(blueprint: blueprint, worker: worker, level: level) if worker != nil
@@ -71,10 +73,12 @@ namespace :blueprints do
 
       worker = Worker.find_by(profession_en: cell_val('v'))
       level = cell_val('w')
-      BlueprintWorker.create(blueprint: blueprint, worker: worker, level: level) if worker != nil
+      BlueprintWorker.create(blueprint_id: blueprint.id, worker: worker, level: level) if worker != nil
 
 
       # blueprint resource info
+      blueprint.materials.destroy_all
+
       resource = Resource.find_by(resource_id: "iron")
       amount = cell_val('y')
       blueprint.materials.create(materialable: resource, amount: amount) if amount != nil
@@ -175,7 +179,7 @@ namespace :blueprints do
 
       # puts "Blueprint Component updated successfully: #{blueprint.name_en}"
     end 
-    puts "Blueprint Vomponent updated successfully."
+    puts "Blueprint Component updated successfully."
   end
 
   desc "update the blueprints chinese translation and id from xlsx"

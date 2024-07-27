@@ -4,6 +4,7 @@ class BlueprintsController < ApplicationController
   # GET /blueprints or /blueprints.json
   def index
     @blueprints = Blueprint.all.includes(:type, :unlock_type, blueprint_workers: [:worker], materials: [:materialable, :quality])
+    @categories = Category.all.includes(:types)
   end
 
   # GET /blueprints/1 or /blueprints/1.json
@@ -58,7 +59,7 @@ class BlueprintsController < ApplicationController
   end
 
   def filter_update
-    
+
   end
 
   private
