@@ -62,7 +62,53 @@ class BlueprintsController < ApplicationController
   end
 
   def filter_update
+    @blueprints = Blueprint.all.includes(:type, :unlock_type, blueprint_workers: [:worker], materials: [:materialable, :quality])
+
+    # params['tier']
+    @blueprints = @blueprints.where(tier: params['tier']) #if params['tier'].present?
+
+    # params['type']
+    @blueprints = @blueprints.where(type_id: params['type']) #if params['type'].present?
     
+    # params['valid_resource']
+    if params['valid_resource'].present?
+      @blueprints = @blueprints
+                    .joins(:resources)  # join @blueprints and resource table
+                    .where(resources: { resource_id: params['valid_resource'] }) #find the records associated with params
+                    .group('blueprints.id') # grouping records by blueprint's id
+                    .having('COUNT(DISTINCT resources.id) = ?', params['valid_resource'].size) #filter the blueprints with leng(param) size records in final table
+                    .to_a # convert to array of blueprint instance
+    end
+
+    # params['invalid_resource']
+    if params['invalid_resource'].present?
+      @blueprints = @blueprints.where.not(id: Blueprint.joins(:resources).where(resources: { resource_id: params['invalid_resource'] }).select(:id))
+    end
+
+    # params['valid_component']
+    if params['valid_component'].present?
+      @blueprints = @blueprints
+                    .joins(:components)  # join @blueprints and component table
+                    .where(components: { component_id: params['valid_component'] }) #find the records associated with params
+                    .group('blueprints.id') # grouping records by blueprint's id
+                    .having('COUNT(DISTINCT components.id) = ?', params['valid_component'].size) #filter the blueprints with leng(param) size records in final table
+                    .to_a # convert to array of blueprint instance
+    end
+    # params['invalid_component']
+    if params['invalid_component'].present?
+      @blueprints = @blueprints.where.not(id: Blueprint.joins(:components).where(components: { component_id: params['invalid_component'] }).select(:id))
+    end
+
+    # params['sort_by']
+    if params['sort_by'].present?
+      @blueprints = @blueprints.sort_by(&params['sort_by'].to_sym).reverse
+    end
+
+    respond_to do |format|
+      format.html { redirect_to blueprints_url}
+      format.turbo_stream
+    end
+
   end
 
   private

@@ -8,7 +8,7 @@
                     value: component.component_id,
                     multiple: true,
                     onchange: "this.form.requestSubmit();",
-                    checked: true
+                    checked: false
                 }, component.component_id, nil %>
                 <%= form.label "valid_component_#{component.component_id}" do %>
                     <%= image_tag component.img, alt: component.component_id %>

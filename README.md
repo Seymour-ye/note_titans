@@ -480,17 +480,14 @@ to
 
 
 # TODO LIST
-* All imports should be **UPDATE** rather than create
-- img asset file structure adjustment
-* img display: wrong image for opulent jewel (platinum jewel displayed)
-- Component: Platinum Jewel not in Spreadsheet, need to be added.
-- adding item images for blueprint display
+- Calendar:
+  - add task for import monthly events and content pass
+  - add a calendar for events 
+  - add flash quests for calendar testing
+
 - sort by: 
+  - radio button css styling
   - Worker Level: options: workers
-  - Event: favor, airship power
-  - Oper: value, merchant_xp 
-- blueprint view in index
-- display correct info about each blueprint in blueprint partial (for show & index)
 - display proper info about each blueprint in `blueprint#show`
 - add `Used For` section for each blueprint (i.e. precraft item, champion visit, unlock pre-req)
 - Calendar: 
@@ -512,10 +509,7 @@ to
 - import from google spreadsheet (blueprints, ....)
 - header navigation bar
 - remove white-space above nav bar
-- add a calendar for events 
-- add flash quests for calendar testing
 - set up i18n
-- test i18n with flash quest
 - set up i18n related configurations
 - set locale by browser preference
 - navigation bar showing current page
@@ -523,8 +517,6 @@ to
 - bug-fix: locale keep setting to browser default
 - basic filter added
 - Calendar name of the month showing the next month(bug fixed: using month as index so skipped index 0 in translation list)
-- add task for import monthly events and content pass
-- Calendar: finished
 - js event listener not loaded until refresh (bug fixed: turbo load)
 - basic filter added
 - filter: select all & select none features
@@ -551,3 +543,14 @@ to
     - _navigation
 - deloy the app on fly.io
 - set up database on fly.io
+- img asset file structure adjustment
+- adding item images for blueprint display
+- sort by: 
+  - Event: favor, airship power
+  - Oper: value, merchant_xp 
+- All imports should be **UPDATE** rather than create
+- img display bug fixed: wrong image for opulent jewel (platinum jewel displayed)
+- Component: Platinum Jewel not in Spreadsheet, now added.
+- display correct info about each blueprint in blueprint partial (for show & index)
+
+

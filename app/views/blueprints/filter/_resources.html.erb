@@ -8,7 +8,7 @@
                     value: resource.resource_id,
                     multiple: true,
                     onchange: "this.form.requestSubmit();",
-                    checked: true
+                    checked: false
                 }, resource.resource_id, nil %>
                 <%= form.label "valid_resource_#{resource.resource_id}" do %>
                     <%= image_tag resource.img, alt: resource.resource_id %>

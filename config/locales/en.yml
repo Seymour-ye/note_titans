@@ -18,6 +18,10 @@ en:
   accessory: "Accessory"
   other: "Other"
   sort_by: "Sort By"
+
+  bartering: "Bartering"
+  questing: "Questing"
+  crafting: "Crafting"
     
   _navigation:
     home: "Home"

@@ -1,4 +1,5 @@
 <%= turbo_stream.update "blueprints" do %>
+    <%= params %>
     <% @blueprints.each do |blueprint| %>
         <%= link_to(blueprint) do %>
             <%= render blueprint %>
