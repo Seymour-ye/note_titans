@@ -480,8 +480,6 @@ to
 
 
 # TODO LIST
-- BlueprintCard:
-  * display the attribute sorting with
 - Calendar:
   - add task for import monthly events and content pass
   - add a calendar for events 
@@ -555,5 +553,7 @@ to
 - img display bug fixed: wrong image for opulent jewel (platinum jewel displayed)
 - Component: Platinum Jewel not in Spreadsheet, now added.
 - display correct info about each blueprint in blueprint partial (for show & index)
+- BlueprintCard:
+  * display the attribute sorting with
 
 

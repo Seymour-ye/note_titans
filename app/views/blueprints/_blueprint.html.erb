@@ -50,20 +50,29 @@
   </div>
   <div class="item_info">
     <div class="attribute">
-      <%= image_tag currency_gold_img %>
-      <%= number_to_delimited(blueprint.value) %>
-    </div>
-    <div class="attribute">
-      <%= image_tag craft_time_img %>
-      <%= blueprint.craft_time_formatted %>
-    </div>
-    <div class="attribute">
       <%= image_tag merchant_xp_img %>
       <%= number_to_delimited(blueprint.merchant_xp) %>
     </div>
     <div class="attribute">
       <%= image_tag worker_xp_img %>
       <%= number_to_delimited(blueprint.worker_xp) %>
+    </div>
+    <div class="attribute">
+      <%= image_tag currency_gold_img %>
+      <%= number_to_delimited(blueprint.value) %>
+    </div>
+    <div class="attribute">
+      <% attr = params['sort_by'] %>
+      <% attr = 'craft_time' if !attr || attr.in?(['value', 'merchant_xp', 'worker_xp']) %>
+      <% attr_img = "#{attr}_img" %>
+      <% if respond_to?(attr_img) %>
+        <%= image_tag send(attr_img) %>
+        <% if attr == 'craft_time' %>
+          <%= blueprint.craft_time_formatted %>
+        <% else %>
+          <%= number_to_delimited(blueprint.send(attr)) %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
