@@ -88,3 +88,5 @@ gem "jquery-rails", "~> 4.6"
 gem "dockerfile-rails", ">= 1.6", :group => :development
 
 gem "humanize", "~> 3.1"
+
+gem "pagy", "~> 9.0"

@@ -3,11 +3,12 @@ class BlueprintsController < ApplicationController
 
   # GET /blueprints or /blueprints.json
   def index
-    @blueprints = Blueprint.all.includes(:type, :unlock_type, blueprint_workers: [:worker], materials: [:materialable, :quality])
+    blueprints = Blueprint.all.includes(:type, :unlock_type, blueprint_workers: [:worker], materials: [:materialable, :quality])
     @categories = Category.all.includes(:types)
     @resources = Resource.all
     @components = Component.all
     @tiers = (1..Blueprint.maximum(:tier)).to_a
+    @pagy, @blueprints = pagy(blueprints)
     # @blueprints = update_blueprints_by_filter(session[:filter]) if session[:filter].present?
   end
 
@@ -64,8 +65,8 @@ class BlueprintsController < ApplicationController
 
   def filter_update
     session[:filter] = params
-    @blueprints = update_blueprints_by_filter(params)
-    
+    blueprints = update_blueprints_by_filter(params)
+    @pagy, @blueprints = pagy(blueprints)
 
     respond_to do |format|
       format.html { redirect_to blueprints_url}

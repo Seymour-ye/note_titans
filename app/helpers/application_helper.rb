@@ -1,5 +1,6 @@
 module ApplicationHelper
     include ActiveSupport::NumberHelper
+    include Pagy::Frontend
     
     def active_class(controller_name)
         controller_name == controller.controller_name ? 'active' : ''

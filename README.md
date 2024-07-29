@@ -480,6 +480,9 @@ to
 
 
 # TODO LIST
+- Application:
+  - Pagy css styling
+- Blueprint:
 - Calendar:
   - add task for import monthly events and content pass
   - add a calendar for events 
@@ -555,5 +558,7 @@ to
 - display correct info about each blueprint in blueprint partial (for show & index)
 - BlueprintCard:
   * display the attribute sorting with
+- Blueprint:
+  - Pagination: for optimize loading time
 
 
