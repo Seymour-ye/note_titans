@@ -484,7 +484,8 @@ to
   - add task for import monthly events and content pass
   - add a calendar for events 
   - add flash quests for calendar testing
-
+- filter:
+  - save filter choices to session, return same @blueprints while refreshing the page.
 - sort by: 
   - radio button css styling
   - Worker Level: options: workers
