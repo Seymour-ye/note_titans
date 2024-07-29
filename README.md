@@ -287,7 +287,7 @@ Since Fly.io already created database for existing project automatically, all I 
 ```
 $ fly ssh console                             # access to fly console
 >> ./bin/rails db:migrate                     # migration
->> ./bin/rake  general:initialize_database
+>> ./bin/rake  database:init
 ```
 6. Database commands
 ```
