@@ -480,6 +480,8 @@ to
 
 
 # TODO LIST
+- BlueprintCard:
+  * display the attribute sorting with
 - Calendar:
   - add task for import monthly events and content pass
   - add a calendar for events 

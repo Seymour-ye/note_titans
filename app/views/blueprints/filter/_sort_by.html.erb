@@ -3,7 +3,7 @@
         <div class="filter_name"><%= t("bartering") %></div>
         <div class="filter_options">
             <%= form.radio_button :sort_by, :value, onchange: "this.form.requestSubmit();"%>
-            <%= form.label "sort_by_gold_value" do %>
+            <%= form.label "sort_by_value" do %>
                 <%= image_tag currency_gold_img %>
             <% end %>
 

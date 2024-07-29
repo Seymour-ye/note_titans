@@ -34,8 +34,8 @@ class CreateBlueprints < ActiveRecord::Migration[7.0]
       t.integer :atk
       t.integer :def
       t.integer :hp
-      t.integer :eva
-      t.integer :crit
+      t.decimal :eva
+      t.decimal :crit
 
       t.timestamps
     end

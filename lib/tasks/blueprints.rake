@@ -130,11 +130,11 @@ namespace :blueprints do
       blueprint.speed_up_energy = cell_val('bv')
 
       # Equip Attr
-      blueprint.atk = cell_val('ar')
-      blueprint.def = cell_val('as')
-      blueprint.hp = cell_val('at')
-      blueprint.eva = cell_val('au')
-      blueprint.crit = cell_val('av')
+      blueprint.atk = cell_val('ar') ? cell_val('ar') : 0
+      blueprint.def = cell_val('as') ? cell_val('as') : 0
+      blueprint.hp = cell_val('at') ? cell_val('at') : 0
+      blueprint.eva = cell_val('au') ? cell_val('au') : 0
+      blueprint.crit = cell_val('av') ? cell_val('av') : 0
 
       blueprint.save!
 

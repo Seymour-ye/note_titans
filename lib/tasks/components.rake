@@ -44,6 +44,17 @@ namespace :components do
     puts "Component updated successfully."
   end
 
+  desc "check for components updates"
+  task check_update: :environment do 
+    puts "=============Check Components update================"
+    Component.all.each do |component|
+      if !component.component_id || !component.name_zh 
+        puts "#{component.name_en}"
+      end
+    end
+    puts "=====================DONE=========================="
+  end
+
   def cell_val(col)
     @sheet.cell(@row,col) unless @sheet.cell(@row,col) == '---'
   end

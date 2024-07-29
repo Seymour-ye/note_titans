@@ -54,8 +54,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_15_225945) do
     t.integer "atk"
     t.integer "def"
     t.integer "hp"
-    t.integer "eva"
-    t.integer "crit"
+    t.decimal "eva"
+    t.decimal "crit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "unlock_type_id", null: false
