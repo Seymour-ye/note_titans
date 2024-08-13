@@ -15,7 +15,7 @@ module BlueprintsHelper
         return false
       end
     else
-      return defualt
+      return default
     end
   end
 end
