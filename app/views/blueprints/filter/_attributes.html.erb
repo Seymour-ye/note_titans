@@ -8,7 +8,7 @@
                     value: tier,
                     multiple: true,
                     onchange: "this.form.requestSubmit();",
-                    checked: true
+                    checked: filter_set(true, 'tier', "#{tier}")
                 }, tier, nil %>
                 <%= form.label "tier_#{tier}" do %>
                     <%= image_tag tier_bg_img %>

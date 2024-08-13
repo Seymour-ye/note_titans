@@ -8,7 +8,7 @@
                     value: component.component_id,
                     multiple: true,
                     onchange: "this.form.requestSubmit();",
-                    checked: false
+                    checked: filter_set(false, 'valid_component', component.component_id)
                 }, component.component_id, nil %>
                 <%= form.label "valid_component_#{component.component_id}" do %>
                     <%= image_tag component.img, alt: component.component_id %>
@@ -29,7 +29,7 @@
                     value: component.component_id,
                     multiple: true,
                     onchange: "this.form.requestSubmit();",
-                    checked: false
+                    checked: filter_set(false, 'invalid_component', component.component_id)
                 }, component.component_id, nil %>
                 <%= form.label "invalid_component_#{component.component_id}" do %>
                     <%= image_tag component.img, alt: component.component_id %>

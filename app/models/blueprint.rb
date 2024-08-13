@@ -1,5 +1,4 @@
 class Blueprint < ApplicationRecord
-  default_scope { order(:id) }
   belongs_to :type
   belongs_to :unlock_type 
 

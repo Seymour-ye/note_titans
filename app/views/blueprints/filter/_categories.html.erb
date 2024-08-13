@@ -9,7 +9,7 @@
                         value: type.id,
                         multiple: true,
                         onchange: "this.form.requestSubmit();",
-                        checked: true
+                        checked: filter_set(true, 'type', "#{type.id}")
                     }, type.id, nil %>
                     <%= form.label "type_#{type.type_id}" do %>
                         <%= image_tag type.img, alt: type.type_id %>

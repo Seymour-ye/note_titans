@@ -4,12 +4,15 @@ class BlueprintsController < ApplicationController
   # GET /blueprints or /blueprints.json
   def index
     blueprints = Blueprint.all.includes(:type, :unlock_type, blueprint_workers: [:worker], materials: [:materialable, :quality])
+    blueprints = blueprints.order('id ASC')
+    if session[:filter].present?
+      blueprints = update_blueprints_by_filter(session[:filter])
+    end
     @categories = Category.all.includes(:types)
     @resources = Resource.all
     @components = Component.all
     @tiers = (1..Blueprint.maximum(:tier)).to_a
     @pagy, @blueprints = pagy(blueprints)
-    # @blueprints = update_blueprints_by_filter(session[:filter]) if session[:filter].present?
   end
 
   # GET /blueprints/1 or /blueprints/1.json
@@ -66,7 +69,8 @@ class BlueprintsController < ApplicationController
   def filter_update
     session[:filter] = params
     blueprints = update_blueprints_by_filter(params)
-    @pagy, @blueprints = pagy(blueprints)
+    @pagy, @blueprints = pagy(blueprints, request_path: '/blueprints')
+    # @pagy, @blueprints = pagy(blueprints)
 
     respond_to do |format|
       format.html { redirect_to blueprints_url}
@@ -102,7 +106,7 @@ class BlueprintsController < ApplicationController
                       .where(resources: { resource_id: params['valid_resource'] }) #find the records associated with params
                       .group('blueprints.id') # grouping records by blueprint's id
                       .having('COUNT(DISTINCT resources.id) = ?', params['valid_resource'].size) #filter the blueprints with leng(param) size records in final table
-                      .to_a # convert to array of blueprint instance
+                      #.to_a # convert to array of blueprint instance
       end
 
       # params['invalid_resource']
@@ -117,7 +121,7 @@ class BlueprintsController < ApplicationController
                       .where(components: { component_id: params['valid_component'] }) #find the records associated with params
                       .group('blueprints.id') # grouping records by blueprint's id
                       .having('COUNT(DISTINCT components.id) = ?', params['valid_component'].size) #filter the blueprints with leng(param) size records in final table
-                      .to_a # convert to array of blueprint instance
+                      #.to_a # convert to array of blueprint instance
       end
       # params['invalid_component']
       if params['invalid_component'].present?
@@ -126,7 +130,7 @@ class BlueprintsController < ApplicationController
 
       # params['sort_by']
       if params['sort_by'].present?
-        blueprints = blueprints.sort_by(&params['sort_by'].to_sym).reverse
+        blueprints = blueprints.order("blueprints.#{params['sort_by']} DESC") 
       end
 
       return blueprints

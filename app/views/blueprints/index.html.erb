@@ -4,12 +4,17 @@
 
 <%= render 'blueprints/filter/filter_container' %>
 
-<%== pagy_nav(@pagy) if @pagy.pages > 1 %>
-
-<div id="blueprints">
-  <% @blueprints.each do |blueprint| %>
-    <%= link_to(blueprint) do %>
-        <%= render blueprint %>
+<div id="blueprints_list">
+  <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+  
+  <div id="blueprints">
+    <% @blueprints.each do |blueprint| %>
+      <%= link_to(blueprint) do %>
+          <%= render blueprint %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+
+  <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+
 </div>

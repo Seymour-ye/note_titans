@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
     include Pagy::Backend
+    require 'pagy/extras/array'
     around_action :switch_locale
   
     private

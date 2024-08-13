@@ -8,7 +8,7 @@
                     value: resource.resource_id,
                     multiple: true,
                     onchange: "this.form.requestSubmit();",
-                    checked: false
+                    checked: filter_set(false, 'valid_resource', resource.resource_id)
                 }, resource.resource_id, nil %>
                 <%= form.label "valid_resource_#{resource.resource_id}" do %>
                     <%= image_tag resource.img, alt: resource.resource_id %>
@@ -29,7 +29,7 @@
                     value: resource.resource_id,
                     multiple: true,
                     onchange: "this.form.requestSubmit();",
-                    checked: false
+                    checked: filter_set(false, 'invalid_resource', resource.resource_id)
                 }, resource.resource_id, nil %>
                 <%= form.label "invalid_resource_#{resource.resource_id}" do %>
                     <%= image_tag resource.img, alt: resource.resource_id %>

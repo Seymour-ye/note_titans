@@ -1,7 +1,14 @@
-<%= turbo_stream.update "blueprints" do %>
-    <% @blueprints.each do |blueprint| %>
+<%= turbo_stream.update "blueprints_list" do %>
+    <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+
+    <div id="blueprints">
+        <% @blueprints.each do |blueprint| %>
         <%= link_to(blueprint) do %>
             <%= render blueprint %>
         <% end %>
-    <% end %>
+        <% end %>
+    </div>
+
+    <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+
 <% end %>

@@ -2,12 +2,16 @@
     <div class="filter-line">
         <div class="filter_name"><%= t("bartering") %></div>
         <div class="filter_options">
-            <%= form.radio_button :sort_by, :value, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :value,
+                    checked: filter_set(false, 'sort_by', 'value'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_value" do %>
                 <%= image_tag currency_gold_img %>
             <% end %>
 
-            <%= form.radio_button :sort_by, :merchant_xp, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :merchant_xp,
+                    checked: filter_set(false, 'sort_by', 'merchant_xp'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_merchant_xp" do %>
                 <%= image_tag merchant_xp_img %>
             <% end %>
@@ -17,27 +21,37 @@
     <div class="filter-line">
         <div class="filter_name"><%= t("questing") %></div>
         <div class="filter_options">
-            <%= form.radio_button :sort_by, :hp, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :hp,
+                    checked: filter_set(false, 'sort_by', 'hp'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_hp" do %>
                 <%= image_tag hp_img %>
             <% end %>
 
-            <%= form.radio_button :sort_by, :atk, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :atk,
+                    checked: filter_set(false, 'sort_by', 'atk'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_atk" do %>
                 <%= image_tag atk_img %>
             <% end %>
 
-            <%= form.radio_button :sort_by, :def, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :def,
+                    checked: filter_set(false, 'sort_by', 'def'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_def" do %>
                 <%= image_tag def_img %>
             <% end %>
 
-            <%= form.radio_button :sort_by, :eva, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :eva,
+                    checked: filter_set(false, 'sort_by', 'eva'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_eva" do %>
                 <%= image_tag eva_img %>
             <% end %>
 
-            <%= form.radio_button :sort_by, :crit, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :crit,
+                    checked: filter_set(false, 'sort_by', 'crit'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_crit" do %>
                 <%= image_tag crit_img %>
             <% end %>
@@ -46,12 +60,16 @@
     <div class="filter-line">
         <div class="filter_name"><%= t("crafting") %></div>
         <div class="filter_options">
-            <%= form.radio_button :sort_by, :craft_time, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :craft_time,
+                    checked: filter_set(false, 'sort_by', 'craft_time'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_craft_time" do %>
                 <%= image_tag craft_time_img %>
             <% end %>
 
-            <%= form.radio_button :sort_by, :worker_xp, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :worker_xp,
+                    checked: filter_set(false, 'sort_by', 'worker_xp'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_worker_xp" do %>
                 <%= image_tag worker_xp_img %>
             <% end %>
@@ -60,12 +78,16 @@
     <div class="filter-line">
         <div class="filter_name"><%= t("navigation.events") %></div>
         <div class="filter_options">
-            <%= form.radio_button :sort_by, :favor, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :favor,
+                    checked: filter_set(false, 'sort_by', 'favor'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_favor" do %>
                 <%= image_tag favor_img %>
             <% end %>
 
-            <%= form.radio_button :sort_by, :airship_power, onchange: "this.form.requestSubmit();"%>
+            <%= form.radio_button :sort_by, :airship_power,
+                    checked: filter_set(false, 'sort_by', 'airship_power'),
+                    onchange: "this.form.requestSubmit();"%>
             <%= form.label "sort_by_airship_power" do %>
                 <%= image_tag airship_power_img %>
             <% end %>
