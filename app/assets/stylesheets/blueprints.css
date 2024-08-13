@@ -122,15 +122,15 @@
 }
 
 #blueprint_filters {
-  z-index: 99;
   padding-top: 2px;
   padding-bottom: 2px;
-  position: sticky;
-  top: 3em;
+  /* position: sticky; */
+  /* top: 3em; */
   background-color: rgb(61,61,61);
   color: white;
 
   nav {
+    z-index: 0;
     position: relative;
     width: 7em;
 
@@ -237,6 +237,20 @@
       }
     }
   }
+}
 
-  
+#blueprints_list{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+
+  .nav {
+    top: 3rem;
+  }
+
+  #blueprints {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+  }
 }
