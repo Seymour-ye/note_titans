@@ -35,7 +35,7 @@ namespace :blueprints do
         type = UnlockType.find_by(type_id: 'artifact')
       elsif prerequisite.include?("Chest")
         type = UnlockType.find_by(type_id: "chest")
-      elsif prerequisite.include?("Pack") || prerequisite.include?("Offer")
+      elsif prerequisite.include?("Pack") || prerequisite.include?("Offer") || prerequisite.include?("Superior")
         type = UnlockType.find_by(type_id: 'premium')
       end
       blueprint.unlock_type = type
@@ -57,7 +57,7 @@ namespace :blueprints do
       # blueprint event info
       blueprint.favor = cell_val('o')
       blueprint.airship_power = cell_val('p')
-
+      # puts "#{blueprint.inspect}"
       blueprint.save!
 
       # blueprint worker info
