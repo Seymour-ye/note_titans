@@ -9,6 +9,18 @@
           <%= image_tag blueprint.img_tier %>
         </div>
       </div>
+      <div class="affinity_tag icon">
+        <% blueprint.elements.each do |element| %>
+        <div class="affinity_icon">
+          <%= image_tag element.img %>
+        </div>
+        <% end %>
+        <% blueprint.spirits.each do |spirit| %>
+        <div class="affinity_icon">
+          <%= image_tag spirit.img %>
+        </div>
+        <% end %>
+      </div>
     </div>
     <div class="blueprint_tag">
       <div class="blueprint_background">
