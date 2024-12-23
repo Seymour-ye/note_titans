@@ -224,6 +224,61 @@ namespace :blueprints do
     puts "Blueprint Unlock Type imported successfully"
   end 
 
+  desc "initialize elements"
+  task elements_init: :environment do 
+    elements = ['fire', 'water', 'air', 'earth', 'light', 'dark', 'gold']
+    elements.each do |e|
+      element = Element.find_or_create_by(element_id: e)
+      element.save!
+    end
+    puts "Elements initialized successfully."
+  end
+
+  desc "initialize spirits"
+  task spirits_init: :environment do 
+    t = Type.find_by(type_id: 'spirit')
+    b = Blueprint.where(type_id: t.id)
+    b.each do |s|
+      s_id = s.name_en.split(' ').first.downcase
+      spirit = Spirit.find_or_create_by(spirit_id: s_id)
+      spirit.save!
+    end
+    puts "Spirits initialized successfully."
+  end
+
+  desc "update affinities"
+  task update_affinities: :environment do 
+    elements = ['fire', 'water', 'air', 'earth', 'light', 'dark', 'gold']
+    url = "https://docs.google.com/spreadsheets/d/1WLa7X8h3O0-aGKxeAlCL7bnN8-FhGd3t7pz2RCzSg8c/export?format=xlsx"
+    xls = Roo::Spreadsheet.open(url, extension: :xlsx)
+    @sheet = xls.sheet('Blueprints')
+    (2..@sheet.last_row).each do |row|
+      @row = row
+
+      # find the associated blueprint
+      name_en = cell_val('a')
+      blueprint = Blueprint.find_by(name_en: name_en)
+      blueprint.spirits.destroy_all
+      blueprint.elements.destroy_all
+
+      elementalAffinities = cell_val('ax') ? cell_val('ax').split(', ') : []
+      if elementalAffinities.size == 1 && elementalAffinities[0] == 'All'
+        elementalAffinities = elements
+      end
+      elementalAffinities.each do |e|
+        e.downcase!
+        blueprint.elements << Element.find_by(element_id: e)
+      end
+
+      spiritAffinities = cell_val('ay') ? cell_val('ay').split(', ')  : []
+      spiritAffinities.each do |s|
+        spirit = s.split(' ').first.downcase
+        blueprint.spirits << Spirit.find_by(spirit_id: spirit)
+      end
+    end 
+    puts "Blueprint Affinities updated successfully."
+  end
+
   desc "check for blueprint updates"
   task check_update: :environment do 
     puts "=============Check Blueprint update================"

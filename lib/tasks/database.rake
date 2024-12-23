@@ -25,6 +25,9 @@ namespace :database do
     Rake::Task["blueprints:import"].invoke 
     Rake::Task["blueprints:import_components"].invoke
     Rake::Task["blueprints:zh_update"].invoke
+    Rake::Task["blueprints:elements_init"].invoke
+    Rake::Task["blueprints:spirits_init"].invoke 
+    Rake::Task["blueprints:update_affinities"].invoke
   end
 
   desc "list of tasks to check updates"

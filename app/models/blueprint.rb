@@ -5,6 +5,12 @@ class Blueprint < ApplicationRecord
   has_many :blueprint_workers
   has_many :workers, through: :blueprint_workers
 
+  # affinities
+  has_many :blueprint_elements
+  has_many :elements, through: :blueprint_elements
+  has_many :blueprint_spirits
+  has_many :spirits, through: :blueprint_spirits
+
   # crafting materials
   has_many :materials, dependent: :destroy
   has_many :components, through: :materials, source: :materialable, source_type: 'Component'

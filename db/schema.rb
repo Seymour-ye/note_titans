@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_15_225945) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_23_041643) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blueprint_elements", force: :cascade do |t|
+    t.bigint "blueprint_id", null: false
+    t.bigint "element_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blueprint_id"], name: "index_blueprint_elements_on_blueprint_id"
+    t.index ["element_id"], name: "index_blueprint_elements_on_element_id"
+  end
+
+  create_table "blueprint_spirits", force: :cascade do |t|
+    t.bigint "blueprint_id", null: false
+    t.bigint "spirit_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blueprint_id"], name: "index_blueprint_spirits_on_blueprint_id"
+    t.index ["spirit_id"], name: "index_blueprint_spirits_on_spirit_id"
+  end
 
   create_table "blueprint_types", force: :cascade do |t|
     t.string "type_id"
@@ -82,6 +100,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_15_225945) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "elements", force: :cascade do |t|
+    t.string "element_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "materials", force: :cascade do |t|
     t.bigint "blueprint_id", null: false
     t.string "materialable_type", null: false
@@ -107,6 +131,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_15_225945) do
     t.string "name_en"
     t.string "name_zh"
     t.string "resource_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "spirits", force: :cascade do |t|
+    t.string "spirit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -140,6 +170,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_15_225945) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "blueprint_elements", "blueprints"
+  add_foreign_key "blueprint_elements", "elements"
+  add_foreign_key "blueprint_spirits", "blueprints"
+  add_foreign_key "blueprint_spirits", "spirits"
   add_foreign_key "blueprint_workers", "blueprints"
   add_foreign_key "blueprint_workers", "workers"
   add_foreign_key "blueprints", "types"
