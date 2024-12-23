@@ -226,7 +226,7 @@ namespace :blueprints do
 
   desc "initialize elements"
   task elements_init: :environment do 
-    elements = ['fire', 'water', 'air', 'earth', 'light', 'dark', 'gold']
+    elements = ['fire', 'water', 'air', 'earth', 'light', 'dark', 'gold', 'all']
     elements.each do |e|
       element = Element.find_or_create_by(element_id: e)
       element.save!
@@ -248,7 +248,6 @@ namespace :blueprints do
 
   desc "update affinities"
   task update_affinities: :environment do 
-    elements = ['fire', 'water', 'air', 'earth', 'light', 'dark', 'gold']
     url = "https://docs.google.com/spreadsheets/d/1WLa7X8h3O0-aGKxeAlCL7bnN8-FhGd3t7pz2RCzSg8c/export?format=xlsx"
     xls = Roo::Spreadsheet.open(url, extension: :xlsx)
     @sheet = xls.sheet('Blueprints')
@@ -262,9 +261,6 @@ namespace :blueprints do
       blueprint.elements.destroy_all
 
       elementalAffinities = cell_val('ax') ? cell_val('ax').split(', ') : []
-      if elementalAffinities.size == 1 && elementalAffinities[0] == 'All'
-        elementalAffinities = elements
-      end
       elementalAffinities.each do |e|
         e.downcase!
         blueprint.elements << Element.find_by(element_id: e)
