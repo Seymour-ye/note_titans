@@ -158,6 +158,9 @@ namespace :blueprints do
       quality = Quality.find_by(name_en: cell_val('al'))
       amount = cell_val('am')
       name = cell_val('ak')
+      if name == 'Golden Chunk'
+        name = 'Golden Artifact'
+      end
       if quality != nil
         component = Blueprint.find_by(name_en: name)
       else
@@ -169,6 +172,9 @@ namespace :blueprints do
       quality = Quality.find_by(name_en: cell_val('ao'))
       amount = cell_val('ap')
       name = cell_val('an')
+      if name == 'Golden Chunk'
+        name = 'Golden Artifact'
+      end 
       if quality != nil
         component = Blueprint.find_by(name_en: name)
       else
@@ -192,7 +198,7 @@ namespace :blueprints do
 
       name_en = cell_val('a')
       blueprint = Blueprint.find_by(name_en: name_en)
-
+      # puts "#{name_en}"
       blueprint.name_zh = cell_val('b')
       blueprint.blueprint_id = cell_val('c')
 

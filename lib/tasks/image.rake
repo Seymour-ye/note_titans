@@ -2,6 +2,7 @@ namespace :image do
   desc "TODO"
   task zip_update: :environment do
     puts "TODO//IMAGE ZIP UPDATE"
+    # system("sudo unzip \"app/assets/images/Fan Kit Assets (Shop Titans).zip\"")
   end
 
   desc "migrate local image files to target location"
@@ -19,6 +20,7 @@ namespace :image do
     system("sudo mv \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_santa.png\" \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_christmas.png\"")
     system("sudo mv \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_luxuriousspirit.png\" \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_xolotl.png\"")
     system("sudo mv \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_opulentspirit.png\" \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_quetzalcoatl.png\"")
+    system("sudo mv \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_platinumspirit.png\" \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_ancestor.png\"")
     system("sudo mv \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_rabbitspirit.png\" \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_bunny.png\"")
     system("sudo mv \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_turtle.png\" \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_ram.png\"")
     system("sudo mv \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_crab.png\" \"app/assets/images/Fan Kit Assets (Shop Titans)/Skills/Enchantment/icon_global_skill_i_horse.png\"")
